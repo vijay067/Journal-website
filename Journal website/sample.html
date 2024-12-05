@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Journal Website</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Top bar -->
+    <div class="top-bar">
+      <div class="section home-section" id="home">Home</div>
+      <div class="section my-journals-section" id="my-journals">My Journals</div>
+      <div class="section explore-section" id="explore">Explore</div>
+      <div class="section profile-section" id="profile">Profile</div>
+      <div class="section settings-section" id="settings">Settings</div>
+      <div class="section notifications-section" id="notifications">Notifications</div>
+    </div>
+
+    <!-- Main content area -->
+    <div class="main-content">
+
+       <!-- Music button -->
+      <button id="music-button" onclick="toggleMusic()">🎵</button>
+
+      <!-- Hidden audio element -->
+      <audio id="background-music" src="kanvae kanvae.mp3" loop></audio>
+
+      <!-- Home section -->
+      <div class="section-content" id="home-content">
+        <br />
+
+        <h2>Welcome to our Journal Website!</h2>
+        <b><p>Here you can write and explore journals from others.</p></b>
+        <h1
+          style="
+            color: white;
+            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+              1px 1px 0 #000;
+          "
+        >
+          Welcome to Journal Heaven
+        </h1>
+        <b><p style="color: white;text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,1px 1px 0 #000;">
+          Express your thoughts, explore others' ideas, and connect with
+          like-minded individuals.</p></b>
+        <br /><br />
+
+        <button class="cta-button">Get Started</button>
+
+        <br />
+
+        <div class="features">
+          <div class="feature">
+            <h3>Write Your Journals</h3>
+            <p>
+              Record your daily experiences and thoughts in a secure, private
+              journal.
+            </p>
+          </div>
+          <div class="feature">
+            <h3>Explore and Connect</h3>
+            <p>
+              Discover journals from other users and connect with people who
+              share your interests.
+            </p>
+          </div>
+          <div class="feature">
+            <h3>Customize Your Experience</h3>
+            <p>
+              Personalize your journal with themes and settings that suit your
+              style.
+            </p>
+          </div>
+        </div>
+        <!-- Add more content here -->
+      </div>
+
+      <!-- My Journals section -->
+      <div class="section-content" id="my-journals-content">
+        <h1 style="display: inline-block; margin-right: 10px">My Journals</h1>
+        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        <button
+          style="display: inline-block"
+          onclick="toggleJournalVisibility()"
+        >
+          Create notes
+        </button>
+
+        <div class="new-journal-form" id="new-journal-form">
+          <textarea
+            id="journal-textarea"
+            placeholder="Write your short notes..."
+          ></textarea>
+          <button onclick="saveJournal()">Save</button>
+        </div>
+        <div class="my-journals-list" id="my-journals-list">
+          <!-- Display user's saved journals here -->
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>1/1/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>2/1/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>3/1/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>4/1/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>5/1/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>6/1/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>7/1/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>8/1/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>9/1/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>10/1/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>11/1/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Explore section -->
+      <div class="section-content" id="explore-content">
+        <h2>Explore</h2>
+        <b><p>Discover journals from other users and contact them.</p></b>
+
+        <!-- Search box -->
+        <input
+          type="text"
+          id="search-box"
+          placeholder="Search..."
+          onkeyup="searchJournals()"
+        />
+
+        <!-- Famous persons' journals -->
+        <div class="famous-journals" id="journals-list">
+          <div class="journal" data-name="elonmusk" onclick="showJournal('elonmusk')">
+            <div class="journal-content">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIQ1jMC-4Aux0aGhi_cyjlgZP7qJEzcGf5jA&s" alt="Elon Musk">
+              <p>Elon Musk</p>
+            </div>
+          </div>
+          <div class="journal" data-name="markzuckerberg" onclick="showJournal('markzuckerberg')">
+            <div class="journal-content">
+              <img src="https://media.vanityfair.com/photos/5cf71b7e5d0130aa612df063/1:1/w_1330,h_1330,c_limit/zuckerberg1.jpg" alt="Mark Zuckerberg">
+              <p>Mark Zuckerberg</p>
+            </div>
+          </div>
+          <div class="journal" data-name="viratkohli" onclick="showJournal('viratkohli')">
+            <div class="journal-content">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz-Nkl1qciJLMBm36dY7VnbV9Ok2Sjxa0ezg&s" alt="Virat Kohli">
+              <p>Virat Kohli</p>
+            </div>
+          </div>
+          <div class="journal" data-name="cristianoronaldo" onclick="showJournal('cristianoronaldo')">
+            <div class="journal-content">
+              <img src="https://media.gq-magazine.co.uk/photos/5d139f7b003d75649cae6ad5/1:1/w_1280,h_1280,c_limit/Ronaldo-GQ-23nov17_GettyImages875941708.jpg" alt="Cristiano Ronaldo">
+              <p>Cristiano Ronaldo</p>
+            </div>
+          </div>
+          <div class="journal" data-name="lionelmessi" onclick="showJournal('lionelmessi')">
+            <div class="journal-content">
+              <img src="https://wallpaperswide.com/download/lionel_messi_10-wallpaper-1024x1024.jpg" alt="Lionel Messi">
+              <p>Lionel Messi</p>
+            </div>
+          </div>
+          
+          <div class="journal" data-name="billgates" onclick="showJournal('billgates')">
+            <div class="journal-content">
+              <img src="https://imageio.forbes.com/specials-images/imageserve/62d599ede3ff49f348f9b9b4/0x0.jpg?format=jpg&crop=821,821,x155,y340,safe&height=416&width=416&fit=bounds" alt="Bill Gates">
+              <p>Bill Gates</p>
+            </div>
+          </div>
+
+          <div class="journal" data-name="stevejobs" onclick="showJournal('stevejobs')">
+            <div class="journal-content">
+              <img src="https://d2p5g4e0g1kdy6.cloudfront.net/v1710170346/dfe038973c884b78ae28fdc57044cc1b.png" alt="Steve Jobs">
+              <p>Steve Jobs</p>
+            </div>
+          </div>
+
+          <div class="journal" data-name="david" onclick="showJournal('david')">
+            <div class="journal-content">
+              <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTpmLV7XYgoHtO2zBW5Exikf1SqR9-kxaTnvXTAk5IIkKWKDQly" alt="david">
+              <p>David Goggins</p>
+            </div>
+          </div>
+
+          <div class="journal" data-name="dhoni" onclick="showJournal('dhoni')">
+            <div class="journal-content">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMl6PlhS6O7gS0AB3T1j57JXp12NYVDod2Bw&s" alt="dhoni">
+              <p>Dhoni</p>
+            </div>
+          </div>
+
+          <div class="journal" data-name="sunil" onclick="showJournal('sunil')">
+            <div class="journal-content">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv7LviFNs-fmvqZJttpo-WaZjT5-23o-FM1A&s" alt="sunil">
+              <p>Sunil Chetri</p>
+            </div>
+          </div>
+
+          <div class="journal" data-name="nambinarayanan" onclick="showJournal('nambinarayanan')">
+            <div class="journal-content">
+              <img src="https://englishtribuneimages.blob.core.windows.net/gallary-content/2019/12/2019_12$largeimg_1487254180.jpg" alt="sunil">
+              <p>Nambi Narayanan</p>
+            </div>
+          </div>
+
+          <div class="journal" data-name="viswanathan anand" onclick="showJournal('viswanathan anand')">
+            <div class="journal-content">
+              <img src="https://images.news18.com/ibnlive/uploads/2021/12/viswanathan-anand.jpg" alt="sunil">
+              <p>Viswanathan Anand</p>
+            </div>
+          </div>
+
+          <div class="journal" data-name="srinivasar amanujan" onclick="showJournal('srinivasa ramanujan')">
+            <div class="journal-content">
+              <img src="https://www.researchgate.net/publication/349424394/figure/fig1/AS:992763579465740@1613704690789/Srinivasa-Ramanujan-1887-1920_Q320.jpg" alt="sunil">
+              <p>Srinivasa Ramanujan</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      
+      <div class="section-content" id="journal-content" style="display: none;">
+        <button onclick="backToExplore()">Back</button>
+        <h2 id="journal-title"></h2>
+        <p id="journal-text"></p>
+      </div>
+        </div>
+      </div>
+
+      <div class="section-content" id="journal-content" style="display: none">
+        <button onclick="backToExplore()">Back</button>
+        <h2 id="journal-title"></h2>
+        <p id="journal-text"></p>
+      </div>
+
+      <!-- Profile section -->
+      <div class="section-content" id="profile-content">
+        <h2>&nbsp;&nbsp; Profile</h2>
+        <p><strong style="font-weight: bold;"> &nbsp;&nbsp;&nbsp; Create and edit your profile information here.</strong></p>
+
+        <!-- Add profile information and editing options -->
+
+        <div class="form-container">
+          <form id="profile-form">
+            <br><br>
+            <label for="username">Username:</label><br><br>
+            <input type="text" id="username" name="username" required><br><br>
+            
+            <label for="firstname">First Name:</label><br><br>
+            <input type="text" id="firstname" name="firstname" required><br><br>
+            
+            <label for="lastname">Last Name:</label><br><br>
+            <input type="text" id="lastname" name="lastname" required><br><br>
+            
+            <label for="age">Age:</label><br><br>
+            <input type="number" id="age" name="age" required><br><br>
+            
+            <label for="email">Email:</label><br><br>
+            <input type="email" id="email" name="email" required><br><br>
+            
+            <label for="password">Password:</label><br><br>
+            <input type="password" id="password" name="password" required><br><br><br>
+            
+            <input type="submit" value="Submit">
+            <br><br>
+          </form>
+        </div>
+        <br><br>
+      </div>
+
+      <!-- Settings section -->
+      <div class="section-content" id="settings-content">
+        <h2>&nbsp;&nbsp; Settings</h2>
+        <p>&nbsp;&nbsp;&nbsp; <b>Adjust your account, security, and notification settings.</b></p>
+        <!-- Add settings options -->
+        <div class="settings-buttons-container">
+          
+
+          <div class="settings-box">
+            <h3>Account Settings</h3>
+            <form id="account-settings-form">
+              <label for="account-username" style="font-weight: bold; color: #000;">Username:</label><br>
+              <input type="text" id="account-username" name="account-username" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; background-color: #f9f9f9; font-size: 16px;"><br><br>
+              
+              <label for="account-email" style="font-weight: bold; color: #000;">Email:</label><br>
+              <input type="email" id="account-email" name="account-email" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; background-color: #f9f9f9; font-size: 16px;"><br><br>
+          
+              <label for="account-gender" style="font-weight: bold; color: #000;">Gender:</label><br><br>
+              <select id="account-gender" name="account-gender" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; background-color: #fff; font-size: 16px;">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select>
+              <br><br>
+          
+              <label for="account-language" style="font-weight: bold; color: #000;">Preferred Language:</label><br><br>
+              <select id="account-language" name="account-language" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; background-color: #fff; font-size: 16px;">
+                <option value="english">English</option>
+                <option value="spanish">Spanish</option>
+                <option value="french">French</option>
+                <option value="german">German</option>
+                <option value="chinese">Chinese</option>
+                <option value="japanese">Japanese</option>
+              </select><br><br>
+          
+              <input type="submit" value="Update Account" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; transition: background-color 0.3s;">
+            </form>
+          </div>
+
+          <div class="blank-space"></div>
+
+        
+          <!-- Security Settings -->
+          <div class="settings-box">
+            <h3>Security Settings</h3>
+            <form id="security-settings-form">
+              <label for="current-password" style="font-weight: bold; color: black;">Current Password:</label><br>
+              <input type="password" id="current-password" name="current-password" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;"><br><br>
+              
+              <label for="new-password" style="font-weight: bold; color: black;">New Password:</label><br>
+              <input type="password" id="new-password" name="new-password" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;"><br><br>
+              
+              <label for="confirm-password" style="font-weight: bold; color: black;">Confirm Password:</label><br>
+              <input type="password" id="confirm-password" name="confirm-password" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;"><br><br>
+              
+              <input type="submit" value="Update Password" style="background-color: rgb(229, 94, 11); color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
+              <br><br><br>
+              <label for="two-factor-auth" style="font-weight: bold; color: black; display: block; margin-bottom: 10px;">Two-Factor Authentication:</label>
+              <input type="checkbox" id="two-factor-auth" name="two-factor-auth" style="margin-bottom: 15px;">
+              <span style="font-size: 14px; color: #666;">Enable Two-Factor Authentication</span><br><br>
+
+              <input type="button" value="Logout" onclick="logout()" style="background-color: #f44336; /* Red background */border: none;color: white;padding: 12px 20px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;margin-top: 10px;cursor: pointer;border-radius: 5px;transition: background-color 0.3s ease;">
+              
+            </form>
+
+
+          </div>
+        
+          <!-- Notification Settings -->
+          <div class="settings-box">
+            <h3>Notification Settings</h3>
+            <form id="notification-settings-form">
+              <label style="font-weight: bold; color: black; display: block; margin-bottom: 10px;">
+                <input type="checkbox" name="email-notifications" checked style="margin-bottom: 15px;"> Email Notifications
+              </label>
+              <br>
+            
+              <label style="font-weight: bold; color: black; display: block; margin-bottom: 10px;">
+                <input type="checkbox" name="sms-notifications" style="margin-bottom: 15px;"> SMS Notifications
+              </label>
+              <br>
+            
+              <label style="font-weight: bold; color: black; display: block; margin-bottom: 10px;">
+                <input type="checkbox" name="push-notifications" checked style="margin-bottom: 15px;"> Push Notifications
+              </label>
+              <br>
+            
+              <label style="font-weight: bold; color: black; display: block; margin-bottom: 10px;">Notification Sound:</label>
+              <select id="notification-sound" name="notification-sound" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; margin-bottom: 15px;">
+                <option value="default">Default Sound</option>
+                <option value="chime">Chime</option>
+                <option value="bell">Bell</option>
+              </select>
+            
+              <br><br>
+              
+              <input type="submit" value="Update Notifications" style="background-color: #4CAF50; /* Green background */border: none;color: white;padding: 12px 20px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;margin-top: 10px;cursor: pointer;border-radius: 5px;transition: background-color 0.3s ease;">
+
+            </form>
+          </div>
+
+          <br><br>
+
+        </div>
+      
+    
+
+     </div>
+
+
+
+
+      <!-- Notifications section -->
+      <div class="section-content" id="notifications-content">
+        
+        <!-- Add notification contents -->
+
+        <h2> &nbsp;&nbsp; Notifications</h2>
+        
+  <div class="notification">
+    <div class="notification-icon">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIQ1jMC-4Aux0aGhi_cyjlgZP7qJEzcGf5jA&s" alt="Elon Musk">
+    </div>
+    <div class="notification-details">
+      <p style="color: rgb(0, 0, 0);" ><strong>Elon Musk</strong> uploaded a new journal</p>
+
+
+      <p class="notification-time" style="color: rgb(0, 0, 0);">Just now</p>
+    </div>
+  </div>
+  <div class="notification">
+    <div class="notification-icon">
+      <img src="https://media.gq-magazine.co.uk/photos/5d139f7b003d75649cae6ad5/1:1/w_1280,h_1280,c_limit/Ronaldo-GQ-23nov17_GettyImages875941708.jpg" alt="Cristiano Ronaldo" alt="Ronaldo">
+    </div>
+    <div class="notification-details">
+      <p style="color: rgb(0, 0, 0);"><strong >Ronaldo</strong> posted a new journal</p>
+      <p class="notification-time" style="color: rgb(0, 0, 0);">2 hours ago</p>
+    </div>
+  </div>
+  <div class="notification">
+    <div class="notification-icon">
+      <img src="https://imageio.forbes.com/specials-images/imageserve/62d599ede3ff49f348f9b9b4/0x0.jpg?format=jpg&crop=821,821,x155,y340,safe&height=416&width=416&fit=bounds" alt="Bill Gates">
+    </div>
+    <div class="notification-details">
+      <p style="color: rgb(0, 0, 0);"><strong>Bill Gates</strong> has opened a new account</p>
+      <p class="notification-time" style="color: rgb(0, 0, 0);">Yesterday</p>
+    </div>
+  </div>
+
+  <div class="notification">
+    <div class="notification-icon">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz-Nkl1qciJLMBm36dY7VnbV9Ok2Sjxa0ezg&s" alt="Bill Gates">
+    </div>
+    <div class="notification-details">
+      <p style="color: rgb(0, 0, 0);"><strong>Virat Kohli</strong> has opened a new account</p>
+      <p class="notification-time" style="color: rgb(0, 0, 0);">3 days ago</p>
+    </div>
+  </div>
+
+  <div class="notification">
+    <div class="notification-icon">
+      <img src="https://wallpaperswide.com/download/lionel_messi_10-wallpaper-1024x1024.jpg" alt="Bill Gates">
+    </div>
+    <div class="notification-details">
+      <p style="color: rgb(0, 0, 0);"><strong>Messi</strong> has opened a new account</p>
+      <p class="notification-time" style="color: rgb(0, 0, 0);">5 hours ago</p>
+    </div>
+  </div>
+
+  <div class="notification">
+    <div class="notification-icon">
+      <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTpmLV7XYgoHtO2zBW5Exikf1SqR9-kxaTnvXTAk5IIkKWKDQly" alt="Bill Gates">
+    </div>
+    <div class="notification-details">
+      <p style="color: rgb(0, 0, 0);"><strong>David Goggins</strong> has opened a new account</p>
+      <p class="notification-time" style="color: rgb(0, 0, 0);">14 hours ago</p>
+    </div>
+  </div>
+
+  <div class="notification">
+    <div class="notification-icon">
+      <img src="https://images.news18.com/ibnlive/uploads/2021/12/viswanathan-anand.jpg" alt="Bill Gates">
+    </div>
+    <div class="notification-details">
+      <p style="color: rgb(0, 0, 0);"><strong>Viswanathan Anand</strong> has opened a new account</p>
+      <p class="notification-time" style="color: rgb(0, 0, 0);">2 hours ago</p>
+    </div>
+  </div>
+
+  <div class="notification">
+    <div class="notification-icon">
+      <img src="https://englishtribuneimages.blob.core.windows.net/gallary-content/2019/12/2019_12$largeimg_1487254180.jpg" alt="Bill Gates">
+    </div>
+    <div class="notification-details">
+      <p style="color: rgb(0, 0, 0);"><strong>Nambi Narayanan</strong> has opened a new account</p>
+      <p class="notification-time" style="color: rgb(0, 0, 0);">8 hours ago</p>
+    </div>
+  </div>
+
+      </div>
+
+
+
+    </div>
+
+    <script src="scripts.js">
+
+
+
+    </script>
+  </body>
+</html>

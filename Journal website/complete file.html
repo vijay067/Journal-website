@@ -1,0 +1,1627 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Merged HTML with CSS and JavaScript</title>
+    <style>
+      /* Your CSS styles here */
+        /* Basic styling */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+
+  }
+
+  body {
+    background: url('https://cdn.dribbble.com/users/720472/screenshots/2177275/gif.gif') no-repeat center center fixed;
+    background-size: cover;
+  }
+
+.top-bar {
+background-color: rgba(51, 51, 51, 0.7); /* Semi-transparent background for better readability */
+color: #fff;
+display: flex;
+justify-content: space-around;
+padding: 30px 0;
+width: 100%; /* Ensure the top bar spans the full width */
+box-sizing: border-box; /* Include padding in the width calculation */
+max-width: 100%; /* Prevent overflow */
+}
+
+.section {
+cursor: pointer;
+}
+
+.main-content {
+padding: 20px;
+}
+
+.section-content {
+display: none;
+}
+
+/* Theme-specific styles */
+.dark-theme {
+background-color: #333;
+color: #fff;
+}
+
+.light-theme {
+background-color: #fff;
+color: #333;
+}
+
+/* New journal form */
+.new-journal-form {
+display: none;
+}
+
+.new-journal-form textarea {
+width: 100%;
+height: 100px;
+margin-bottom: 10px;
+}
+
+/* My journals list */
+.my-journals-list {
+margin-top: 20px;
+}
+
+.my-journals-list .journal-entry {
+margin-bottom: 10px;
+border: 1px solid #ccc;
+padding: 10px;
+}
+
+.home-container {
+background: rgba(255, 255, 255, 0.9); /* White box with slight transparency */
+padding: 30px;
+border-radius: 15px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+text-align: center;
+max-width: 600px;
+width: 90%;
+}
+
+h1 {
+margin-bottom: 20px;
+font-size: 2.5em;
+}
+
+p {
+margin-bottom: 20px;
+font-size: 1.2em;
+}
+
+.cta-button {
+background-color: #4CAF50;
+color: white;
+padding: 15px 25px;
+border: none;
+border-radius: 5px;
+font-size: 1em;
+cursor: pointer;
+transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+background-color: #45a049;
+}
+
+.features {
+display: flex;
+flex-direction: column;
+gap: 15px;
+margin-top: 20px;
+}
+
+.feature {
+background: #f9f9f9;
+padding: 15px;
+border-radius: 10px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.feature h3 {
+margin-top: 0;
+}
+
+@media (min-width: 600px) {
+.features {
+  flex-direction: row;
+  justify-content: space-between;
+}
+}
+
+/* Button styling */
+button {
+background-color: #4CAF50; /* Green background */
+border: none; /* Remove default border */
+color: white; /* White text */
+padding: 15px 25px; /* Padding around the text */
+text-align: center; /* Center text */
+text-decoration: none; /* Remove underline */
+display: inline-block; /* Inline-block element */
+font-size: 16px; /* Font size */
+margin: 10px 2px; /* Margin around the button */
+cursor: pointer; /* Pointer cursor on hover */
+border-radius: 12px; /* Rounded corners */
+transition: background-color 0.3s, transform 0.3s; /* Smooth transition for background and transform */
+}
+
+button:hover {
+background-color: #45a049; /* Darker green on hover */
+transform: scale(1.05); /* Slightly increase size on hover */
+}
+
+button:active {
+background-color: #3e8e41; /* Even darker green on click */
+transform: scale(0.98); /* Slightly reduce size on click */
+}
+
+
+.new-journal-form textarea {
+width: 50%;
+height: 50px;
+margin-bottom: 10px;
+resize: vertical; /* Allow vertical resizing */
+}
+
+.my-journals-list {
+margin-top: 20px;
+}
+
+.journal-entry {
+    width: 70%; /* Set the width to 100% or specify a fixed width */
+    background: rgba(255, 255, 255, 0.9); /* White box with slight transparency */
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+  }
+
+.journal-content {
+margin-bottom: 10px; /* Add space between content and buttons */
+}
+
+.journal-content p {
+margin: 0; /* Remove default margin to ensure content starts from top */
+color: #333; /* Text color for readability */
+font-size: 20px; /* Font size for readability */
+line-height: 1.5; /* Line height for readability */
+}
+
+/* Existing styles... */
+
+#journal-content {
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+#journal-content button {
+  margin-bottom: 20px;
+}
+
+/* Existing styles... */
+
+.famous-journals {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 70px;
+}
+
+.journal {
+  width: calc(20% - 20px); /* 20% width for each journal with 20px gap */
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.9); /* White box with slight transparency */
+}
+
+.journal:hover {
+  transform: scale(1.05);
+}
+
+.journal-content {
+  background-color: white; /* White background for journal content */
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.journal img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.journal p {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+
+#search-box {
+  width: 100%;
+  max-width: 300px;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+
+/* Existing styles... */
+
+#music-button {
+  position: absolute;
+  top: 55px;
+  right: 20px;
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  padding: 10px 15px;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#music-button:focus {
+  outline: none;
+}
+
+
+/* Notification styles */
+
+.notification {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #ffffff; /* White background */
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  margin-left: 20px;
+  width: 70%;
+}
+
+.notification:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.notification-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 15px;
+}
+
+.notification-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.notification-details {
+  flex: 1;
+}
+
+.notification-details p {
+  margin: 5px 0;
+}
+
+.notification-details p:first-child {
+  font-weight: bold;
+  font-size: 16px;
+  color: #333; /* Dark text color */
+}
+
+.notification-time {
+  color: #888;
+  font-size: 14px;
+}
+
+
+/* Heading style */
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* Form styling */
+#profile-form {
+  max-width: 500px; /* Adjust width of the form */
+  margin: 0 auto; /* Center the form horizontally */
+}
+
+/* Label style */
+label {
+  font-weight: bold;
+}
+
+/* Input field styles */
+#profile-form input[type="text"],
+#profile-form input[type="number"],
+#profile-form input[type="email"],
+#profile-form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Submit button style */
+#profile-form input[type="submit"] {
+  background-color: #4CAF50; /* Green background */
+  color: white; /* White text */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Submit button hover effect */
+#profile-form input[type="submit"]:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+.form-container {
+  background: rgba(235, 127, 18, 0.768); /* White box with slight transparency */
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #ddd; /* Light gray border */
+  max-width: 600px; /* Adjust the maximum width */
+  margin: 0 auto; /* Center the form container horizontally */
+}
+
+
+/* General settings section styling */
+#settings-section {
+  background-color: #f0f0f0; /* Light gray background */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* Specific settings boxes */
+.settings-box {
+  background-color: #ffffff; /* White background for each settings box */
+  padding: 20px;
+  border-radius: 8px;
+  border: 20px solid rgba(229, 94, 11, 0.5); /* Light gray border */
+
+  margin-bottom: 20px;
+  width: 60%;
+  margin-left: 46px; /* Adjust this value to move it inch by inch to the right */
+}
+
+#settings-section h3 {
+  margin-top: 0;
+}
+
+#settings-section form label {
+  font-weight: bold;
+}
+
+#settings-section form input[type="text"],
+#settings-section form input[type="email"],
+#settings-section form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box; /* Ensure padding is included in width calculation */
+}
+
+
+
+#settings-section form label input[type="checkbox"] {
+  margin-right: 10px; /* Space between checkbox and label text */
+}
+
+
+
+
+    </style>
+  </head>
+
+  <body>
+    
+      <!-- Top bar -->
+    <div class="top-bar">
+      <div class="section home-section" id="home">Home</div>
+      <div class="section my-journals-section" id="my-journals">My Journals</div>
+      <div class="section explore-section" id="explore">Explore</div>
+      <div class="section profile-section" id="profile">Profile</div>
+      <div class="section settings-section" id="settings">Settings</div>
+      <div class="section notifications-section" id="notifications">Notifications</div>
+    </div>
+
+    <!-- Main content area -->
+    <div class="main-content">
+
+       <!-- Music button -->
+      <button id="music-button" onclick="toggleMusic()">🎵</button>
+
+      <!-- Hidden audio element -->
+      <audio id="background-music" src="kanvae kanvae.mp3" loop></audio>
+
+      <!-- Home section -->
+      <div class="section-content" id="home-content">
+        <br />
+
+        <h2>Welcome to Memoir Today</h2>
+        <b><p>Here you can write and explore journals from others.</p></b>
+        <h1
+          style="
+            color: white;
+            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+              1px 1px 0 #000;
+          "
+        >
+          Welcome to Journal Heaven
+        </h1>
+        <p
+          style="
+            color: white;
+            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+              1px 1px 0 #000;
+          "
+        >
+          Express your thoughts, explore others' ideas, and connect with
+          like-minded individuals.
+        </p>
+
+        <br /><br />
+
+        <button class="cta-button">Get Started</button>
+
+        <br />
+
+        <div class="features">
+          <div class="feature">
+            <h3>Write Your Journals</h3>
+            <p>
+              Record your daily experiences and thoughts in a secure, private
+              journal.
+            </p>
+          </div>
+          <div class="feature">
+            <h3>Explore and Connect</h3>
+            <p>
+              Discover journals from other users and connect with people who
+              share your interests.
+            </p>
+          </div>
+          <div class="feature">
+            <h3>Customize Your Experience</h3>
+            <p>
+              Personalize your journal with themes and settings that suit your
+              style.
+            </p>
+          </div>
+        </div>
+        <!-- Add more content here -->
+      </div>
+
+      <!-- My Journals section -->
+      <div class="section-content" id="my-journals-content">
+        <h1 style="display: inline-block; margin-right: 10px">My Journals</h1>
+        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        <button
+          style="display: inline-block"
+          onclick="toggleJournalVisibility()"
+        >
+          Create notes
+        </button>
+
+        <div class="new-journal-form" id="new-journal-form">
+          <textarea
+            id="journal-textarea"
+            placeholder="Write your short notes..."
+          ></textarea>
+          <button onclick="saveJournal()">Save</button>
+        </div>
+        <div class="my-journals-list" id="my-journals-list">
+          <!-- Display user's saved journals here -->
+           <h2>January</h2>
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>1/1/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>2/1/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>3/1/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>4/1/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>5/1/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>6/1/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>7/1/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>8/1/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>9/1/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>10/1/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>11/1/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>12/1/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>13/1/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>14/1/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>15/1/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>16/1/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>17/1/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>18/1/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>19/1/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>20/1/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>21/1/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>22/1/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>23/1/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>24/1/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>25/1/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>26/1/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>27/1/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>28/1/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>29/1/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>30/1/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>31/1/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+<hr>
+          <h2>February</h2>
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>1/2/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>2/2/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>3/2/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>4/2/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>5/2/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>6/2/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>7/2/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>8/2/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>9/2/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>10/2/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>11/2/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>12/2/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>13/2/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>14/2/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>15/2/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>16/2/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>17/2/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>18/2/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>19/2/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>20/2/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>21/2/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>22/2/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>23/2/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>24/2/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>25/2/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>26/2/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>27/2/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>28/2/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+          <div class="journal-entry">
+            <div class="journal-content">
+              <p>29/2/2024</p>
+            </div>
+            <button onclick="editJournal(this)">Create</button>
+            <button onclick="publishJournal()">Publish Journal</button>
+          </div>
+
+
+        </div>
+      </div>
+
+      <!-- Explore section -->
+      <div class="section-content" id="explore-content">
+        <h2>Explore</h2>
+        <b><p>Discover journals from other users and contact them.</p></b>
+
+        <!-- Search box -->
+        <input
+          type="text"
+          id="search-box"
+          placeholder="Search..."
+          onkeyup="searchJournals()"
+        />
+
+        <!-- Famous persons' journals -->
+        <div class="famous-journals" id="journals-list">
+          <div class="journal" data-name="elonmusk" onclick="showJournal('elonmusk')">
+            <div class="journal-content">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIQ1jMC-4Aux0aGhi_cyjlgZP7qJEzcGf5jA&s" alt="Elon Musk">
+              <p>Elon Musk</p>
+            </div>
+          </div>
+          <div class="journal" data-name="markzuckerberg" onclick="showJournal('markzuckerberg')">
+            <div class="journal-content">
+              <img src="https://media.vanityfair.com/photos/5cf71b7e5d0130aa612df063/1:1/w_1330,h_1330,c_limit/zuckerberg1.jpg" alt="Mark Zuckerberg">
+              <p>Mark Zuckerberg</p>
+            </div>
+          </div>
+          <div class="journal" data-name="viratkohli" onclick="showJournal('viratkohli')">
+            <div class="journal-content">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz-Nkl1qciJLMBm36dY7VnbV9Ok2Sjxa0ezg&s" alt="Virat Kohli">
+              <p>Virat Kohli</p>
+            </div>
+          </div>
+          <div class="journal" data-name="cristianoronaldo" onclick="showJournal('cristianoronaldo')">
+            <div class="journal-content">
+              <img src="https://media.gq-magazine.co.uk/photos/5d139f7b003d75649cae6ad5/1:1/w_1280,h_1280,c_limit/Ronaldo-GQ-23nov17_GettyImages875941708.jpg" alt="Cristiano Ronaldo">
+              <p>Cristiano Ronaldo</p>
+            </div>
+          </div>
+          <div class="journal" data-name="lionelmessi" onclick="showJournal('lionelmessi')">
+            <div class="journal-content">
+              <img src="https://wallpaperswide.com/download/lionel_messi_10-wallpaper-1024x1024.jpg" alt="Lionel Messi">
+              <p>Lionel Messi</p>
+            </div>
+          </div>
+          
+          <div class="journal" data-name="billgates" onclick="showJournal('billgates')">
+            <div class="journal-content">
+              <img src="https://imageio.forbes.com/specials-images/imageserve/62d599ede3ff49f348f9b9b4/0x0.jpg?format=jpg&crop=821,821,x155,y340,safe&height=416&width=416&fit=bounds" alt="Bill Gates">
+              <p>Bill Gates</p>
+            </div>
+          </div>
+
+          <div class="journal" data-name="stevejobs" onclick="showJournal('stevejobs')">
+            <div class="journal-content">
+              <img src="https://d2p5g4e0g1kdy6.cloudfront.net/v1710170346/dfe038973c884b78ae28fdc57044cc1b.png" alt="Steve Jobs">
+              <p>Steve Jobs</p>
+            </div>
+          </div>
+
+          <div class="journal" data-name="david" onclick="showJournal('david')">
+            <div class="journal-content">
+              <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTpmLV7XYgoHtO2zBW5Exikf1SqR9-kxaTnvXTAk5IIkKWKDQly" alt="david">
+              <p>David Goggins</p>
+            </div>
+          </div>
+
+          <div class="journal" data-name="dhoni" onclick="showJournal('dhoni')">
+            <div class="journal-content">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMl6PlhS6O7gS0AB3T1j57JXp12NYVDod2Bw&s" alt="dhoni">
+              <p>Dhoni</p>
+            </div>
+          </div>
+
+          <div class="journal" data-name="sunil" onclick="showJournal('sunil')">
+            <div class="journal-content">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv7LviFNs-fmvqZJttpo-WaZjT5-23o-FM1A&s" alt="sunil">
+              <p>Sunil Chetri</p>
+            </div>
+          </div>
+
+          <div class="journal" data-name="nambinarayanan" onclick="showJournal('nambinarayanan')">
+            <div class="journal-content">
+              <img src="https://englishtribuneimages.blob.core.windows.net/gallary-content/2019/12/2019_12$largeimg_1487254180.jpg" alt="sunil">
+              <p>Nambi Narayanan</p>
+            </div>
+          </div>
+
+          <div class="journal" data-name="viswanathan anand" onclick="showJournal('viswanathan anand')">
+            <div class="journal-content">
+              <img src="https://images.news18.com/ibnlive/uploads/2021/12/viswanathan-anand.jpg" alt="sunil">
+              <p>Viswanathan Anand</p>
+            </div>
+          </div>
+
+          <div class="journal" data-name="srinivasar amanujan" onclick="showJournal('srinivasa ramanujan')">
+            <div class="journal-content">
+              <img src="https://www.researchgate.net/publication/349424394/figure/fig1/AS:992763579465740@1613704690789/Srinivasa-Ramanujan-1887-1920_Q320.jpg" alt="sunil">
+              <p>Srinivasa Ramanujan</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      
+      <div class="section-content" id="journal-content" style="display: none;">
+        <button onclick="backToExplore()">Back</button>
+        <h2 id="journal-title"></h2>
+        <p id="journal-text"></p>
+      </div>
+        </div>
+      </div>
+
+      <div class="section-content" id="journal-content" style="display: none">
+        <button onclick="backToExplore()">Back</button>
+        <h2 id="journal-title"></h2>
+        <p id="journal-text"></p>
+      </div>
+
+      <!-- Profile section -->
+      <div class="section-content" id="profile-content">
+        <h2>&nbsp;&nbsp; Profile</h2>
+        <p><strong style="font-weight: bold;"> &nbsp;&nbsp;&nbsp; Create and edit your profile information here.</strong></p>
+
+        <!-- Add profile information and editing options -->
+
+        <div class="form-container">
+          <form id="profile-form">
+            <br><br>
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username" required><br><br>
+            
+            <label for="firstname">First Name:</label><br>
+            <input type="text" id="firstname" name="firstname" required><br><br>
+            
+            <label for="lastname">Last Name:</label><br>
+            <input type="text" id="lastname" name="lastname" required><br><br>
+            
+            <label for="age">Age:</label><br>
+            <input type="number" id="age" name="age" required><br><br>
+            
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+            
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password" required><br><br><br>
+            
+            <input type="submit" value="Submit"><br><br>
+          </form>
+        </div>
+        <br><br>
+      </div>
+
+      <!-- Settings section -->
+      <div class="section-content" id="settings-content">
+        <h2>&nbsp;&nbsp; Settings</h2>
+        <b><p>&nbsp;&nbsp;&nbsp; Adjust your account, security, and notification settings.</p></b>
+        <!-- Add settings options -->
+        <div class="settings-buttons-container">
+          
+
+          <div class="settings-box">
+            <h3>Account Settings</h3>
+            <form id="account-settings-form">
+              <label for="account-username" style="font-weight: bold; color: #000;">Username:</label><br>
+              <input type="text" id="account-username" name="account-username" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; background-color: #f9f9f9; font-size: 16px;"><br><br>
+              
+              <label for="account-email" style="font-weight: bold; color: #000;">Email:</label><br>
+              <input type="email" id="account-email" name="account-email" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; background-color: #f9f9f9; font-size: 16px;"><br><br>
+          
+              <label for="account-gender" style="font-weight: bold; color: #000;">Gender:</label><br><br>
+              <select id="account-gender" name="account-gender" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; background-color: #fff; font-size: 16px;">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select>
+              <br><br>
+          
+              <label for="account-language" style="font-weight: bold; color: #000;">Preferred Language:</label><br><br>
+              <select id="account-language" name="account-language" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; background-color: #fff; font-size: 16px;">
+                <option value="english">English</option>
+                <option value="spanish">Spanish</option>
+                <option value="french">French</option>
+                <option value="german">German</option>
+                <option value="chinese">Chinese</option>
+                <option value="japanese">Japanese</option>
+              </select><br><br>
+          
+              <input type="submit" value="Update Account" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; transition: background-color 0.3s;">
+            </form>
+          </div>
+
+          <div class="blank-space"></div>
+
+        
+          <!-- Security Settings -->
+          <div class="settings-box">
+            <h3>Security Settings</h3>
+            <form id="security-settings-form">
+              <label for="current-password" style="font-weight: bold; color: black;">Current Password:</label><br>
+              <input type="password" id="current-password" name="current-password" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;"><br><br>
+              
+              <label for="new-password" style="font-weight: bold; color: black;">New Password:</label><br>
+              <input type="password" id="new-password" name="new-password" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;"><br><br>
+              
+              <label for="confirm-password" style="font-weight: bold; color: black;">Confirm Password:</label><br>
+              <input type="password" id="confirm-password" name="confirm-password" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;"><br><br>
+              
+              <input type="submit" value="Update Password" style="background-color: rgb(229, 94, 11); color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
+              <br><br><br>
+              <label for="two-factor-auth" style="font-weight: bold; color: black; display: block; margin-bottom: 10px;">Two-Factor Authentication:</label>
+              <input type="checkbox" id="two-factor-auth" name="two-factor-auth" style="margin-bottom: 15px;">
+              <span style="font-size: 14px; color: #666;">Enable Two-Factor Authentication</span><br><br>
+
+              <input type="button" value="Logout" onclick="logout()" style="background-color: #f44336; /* Red background */border: none;color: white;padding: 12px 20px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;margin-top: 10px;cursor: pointer;border-radius: 5px;transition: background-color 0.3s ease;">
+              
+            </form>
+
+
+          </div>
+        
+          <!-- Notification Settings -->
+          <div class="settings-box">
+            <h3>Notification Settings</h3>
+            <form id="notification-settings-form">
+              <label style="font-weight: bold; color: black; display: block; margin-bottom: 10px;">
+                <input type="checkbox" name="email-notifications" checked style="margin-bottom: 15px;"> Email Notifications
+              </label>
+              <br>
+            
+              <label style="font-weight: bold; color: black; display: block; margin-bottom: 10px;">
+                <input type="checkbox" name="sms-notifications" style="margin-bottom: 15px;"> SMS Notifications
+              </label>
+              <br>
+            
+              <label style="font-weight: bold; color: black; display: block; margin-bottom: 10px;">
+                <input type="checkbox" name="push-notifications" checked style="margin-bottom: 15px;"> Push Notifications
+              </label>
+              <br>
+            
+              <label style="font-weight: bold; color: black; display: block; margin-bottom: 10px;">Notification Sound:</label>
+              <select id="notification-sound" name="notification-sound" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; margin-bottom: 15px;">
+                <option value="default">Default Sound</option>
+                <option value="chime">Chime</option>
+                <option value="bell">Bell</option>
+              </select>
+            
+              <br><br>
+              
+              <input type="submit" value="Update Notifications" style="background-color: #4CAF50; /* Green background */border: none;color: white;padding: 12px 20px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;margin-top: 10px;cursor: pointer;border-radius: 5px;transition: background-color 0.3s ease;">
+
+            </form>
+          </div>
+
+          <br><br>
+
+        </div>
+      
+    
+
+     </div>
+
+
+
+
+      <!-- Notifications section -->
+      <div class="section-content" id="notifications-content">
+        
+        <!-- Add notification contents -->
+
+        <h2> &nbsp;&nbsp; Notifications</h2>
+        
+  <div class="notification">
+    <div class="notification-icon">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIQ1jMC-4Aux0aGhi_cyjlgZP7qJEzcGf5jA&s" alt="Elon Musk">
+    </div>
+    <div class="notification-details">
+      <p style="color: rgb(0, 0, 0);" ><strong>Elon Musk</strong> uploaded a new journal</p>
+
+
+      <p class="notification-time" style="color: rgb(0, 0, 0);">Just now</p>
+    </div>
+  </div>
+  <div class="notification">
+    <div class="notification-icon">
+      <img src="https://media.gq-magazine.co.uk/photos/5d139f7b003d75649cae6ad5/1:1/w_1280,h_1280,c_limit/Ronaldo-GQ-23nov17_GettyImages875941708.jpg" alt="Cristiano Ronaldo" alt="Ronaldo">
+    </div>
+    <div class="notification-details">
+      <p style="color: rgb(0, 0, 0);"><strong >Ronaldo</strong> posted a new journal</p>
+      <p class="notification-time" style="color: rgb(0, 0, 0);">2 hours ago</p>
+    </div>
+  </div>
+  <div class="notification">
+    <div class="notification-icon">
+      <img src="https://imageio.forbes.com/specials-images/imageserve/62d599ede3ff49f348f9b9b4/0x0.jpg?format=jpg&crop=821,821,x155,y340,safe&height=416&width=416&fit=bounds" alt="Bill Gates">
+    </div>
+    <div class="notification-details">
+      <p style="color: rgb(0, 0, 0);"><strong>Bill Gates</strong> has opened a new account</p>
+      <p class="notification-time" style="color: rgb(0, 0, 0);">Yesterday</p>
+    </div>
+  </div>
+
+  <div class="notification">
+    <div class="notification-icon">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz-Nkl1qciJLMBm36dY7VnbV9Ok2Sjxa0ezg&s" alt="Bill Gates">
+    </div>
+    <div class="notification-details">
+      <p style="color: rgb(0, 0, 0);"><strong>Virat Kohli</strong> has opened a new account</p>
+      <p class="notification-time" style="color: rgb(0, 0, 0);">3 days ago</p>
+    </div>
+  </div>
+
+  <div class="notification">
+    <div class="notification-icon">
+      <img src="https://wallpaperswide.com/download/lionel_messi_10-wallpaper-1024x1024.jpg" alt="Bill Gates">
+    </div>
+    <div class="notification-details">
+      <p style="color: rgb(0, 0, 0);"><strong>Messi</strong> has opened a new account</p>
+      <p class="notification-time" style="color: rgb(0, 0, 0);">5 hours ago</p>
+    </div>
+  </div>
+
+  <div class="notification">
+    <div class="notification-icon">
+      <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTpmLV7XYgoHtO2zBW5Exikf1SqR9-kxaTnvXTAk5IIkKWKDQly" alt="Bill Gates">
+    </div>
+    <div class="notification-details">
+      <p style="color: rgb(0, 0, 0);"><strong>David Goggins</strong> has opened a new account</p>
+      <p class="notification-time" style="color: rgb(0, 0, 0);">14 hours ago</p>
+    </div>
+  </div>
+
+  <div class="notification">
+    <div class="notification-icon">
+      <img src="https://images.news18.com/ibnlive/uploads/2021/12/viswanathan-anand.jpg" alt="Bill Gates">
+    </div>
+    <div class="notification-details">
+      <p style="color: rgb(0, 0, 0);"><strong>Viswanathan Anand</strong> has opened a new account</p>
+      <p class="notification-time" style="color: rgb(0, 0, 0);">2 hours ago</p>
+    </div>
+  </div>
+
+  <div class="notification">
+    <div class="notification-icon">
+      <img src="https://englishtribuneimages.blob.core.windows.net/gallary-content/2019/12/2019_12$largeimg_1487254180.jpg" alt="Bill Gates">
+    </div>
+    <div class="notification-details">
+      <p style="color: rgb(0, 0, 0);"><strong>Nambi Narayanan</strong> has opened a new account</p>
+      <p class="notification-time" style="color: rgb(0, 0, 0);">8 hours ago</p>
+    </div>
+  </div>
+
+      </div>
+
+
+
+    </div>
+
+  </body>
+
+  <script>
+    // Your JavaScript code here
+
+    // Function to show/hide section content
+function showSection(sectionId) {
+  // Hide all section content
+  const sections = document.querySelectorAll('.section-content');
+  sections.forEach(section => {
+    section.style.display = 'none';
+  });
+
+  // Show selected section content
+  const selectedSection = document.getElementById(`${sectionId}-content`);
+  selectedSection.style.display = 'block';
+}
+
+// Toggle visibility of new journal form
+function toggleJournalVisibility() {
+  const form = document.getElementById('new-journal-form');
+  form.style.display = form.style.display === 'none' ? 'block' : 'none';
+}
+
+// Save journal entry
+function saveJournal() {
+  const textarea = document.querySelector('#new-journal-form textarea');
+  const journalEntry = textarea.value.trim();
+  if (journalEntry !== '') {
+    // Add journal entry to user's list
+    const myJournalsList = document.getElementById('my-journals-list');
+    const entryElement = document.createElement('div');
+    entryElement.classList.add('journal-entry');
+    entryElement.textContent = journalEntry;
+    myJournalsList.appendChild(entryElement);
+
+    // Clear textarea
+    textarea.value = '';
+
+    // Hide new journal form
+    toggleJournalVisibility();
+  }
+}
+
+// Add click event listeners to top bar sections
+document.querySelectorAll('.section').forEach(section => {
+  section.addEventListener('click', function() {
+    const sectionId = this.id;
+    showSection(sectionId);
+  });
+});
+
+// Example: Show home section by default
+showSection('home');
+
+
+// Basic script for the "Get Started" button
+document.querySelector('.cta-button').addEventListener('click', function() {
+  alert('Welcome to Memoir Today Start your journey now.');
+  // Here you can add more functionality, such as redirecting to another page
+});
+
+
+// Function to edit a journal entry
+function editJournal(button) {
+  // Get the journal content
+  var journalContent = button.parentNode.querySelector('.journal-content p').textContent;
+  
+  // Create a textarea for editing
+  var textarea = document.createElement('textarea');
+  textarea.value = journalContent;
+  
+  // Replace the journal content with the textarea
+  var journalEntry = button.parentNode;
+  journalEntry.querySelector('.journal-content').innerHTML = '';
+  journalEntry.querySelector('.journal-content').appendChild(textarea);
+  
+  // Change the button text and function to save edited journal
+  button.textContent = 'Save';
+  button.onclick = function() {
+    saveEditedJournal(button);
+  };
+}
+
+// Function to save an edited journal entry
+function saveEditedJournal(button) {
+  // Get the edited content from the textarea
+  var editedContent = button.parentNode.querySelector('textarea').value;
+  
+  // Replace the textarea with the updated journal content
+  var journalEntry = button.parentNode;
+  journalEntry.querySelector('.journal-content').innerHTML = '<p>' + editedContent + '</p>';
+  
+  // Change the button text and function back to edit
+  button.textContent = 'Edit';
+  button.onclick = function() {
+    editJournal(button);
+  };
+}
+
+function publishJournal() {
+  // Display a pop-up message to indicate successful publication
+  alert('Journal published successfully');
+}
+
+function searchJournals() {
+  var input, filter, journals, journal, i, txtValue;
+  input = document.getElementById('search-box');
+  filter = input.value.toLowerCase();
+  journals = document.getElementsByClassName('journal');
+  
+  for (i = 0; i < journals.length; i++) {
+    journal = journals[i];
+    txtValue = journal.getAttribute('data-name');
+    if (txtValue.toLowerCase().indexOf(filter) > -1) {
+      journal.style.display = "";
+    } else {
+      journal.style.display = "none";
+    }
+  }
+}
+
+function showJournal(person) {
+  var title = "";
+  var text = "";
+  
+  switch(person) {
+    case 'elonmusk':
+      title = "Elon Musk's Journal";
+      text = "Reflecting on today's advancements and discussions, it is evident that AI holds transformative potential, presenting both unprecedented opportunities and significant ethical and safety challenges. Our meetings with the Neuralink team highlighted the immense possibilities of brain-machine interfaces, emphasizing the need for ethical AI development that enhances human capabilities without compromising autonomy. Collaborations with OpenAI reinforced our commitment to creating AI that aligns with human values, underscoring the importance of transparency and robust safety measures. Reviewing Tesla's autonomous systems further illustrated the delicate balance between innovation and user trust, necessitating foolproof systems and proactive regulatory compliance. As we navigate this uncharted territory, the focus remains on ensuring that AI serves as a powerful ally to humanity. The commitment to guiding AI development responsibly, maintaining public trust, and prioritizing safety is not just a professional duty but a profound moral responsibility. This journey, much like the mission to Mars, is an exciting frontier filled with both challenges and immense potential, requiring cautious, ethical, and visionary leadership.\n\nContact Information \nCEO, SpaceX and Tesla \nEmail: elonmusk@spacex.com \nTwitter: @elonmusk \n";
+      break;
+    case 'markzuckerberg':
+      title = "Mark Zuckerberg's Journal";
+      text = "Today begins quietly in Palo Alto, the morning sun casting a gentle glow through my office window. This peaceful moment allows me to collect my thoughts before diving into the day's challenges. Stepping into the bustling atmosphere of our headquarters, the energy of my team fuels my determination to innovate and improve our platforms. Reflecting on recent developments, I draw strength from the resilience of our community and feel gratitude for their ongoing support. As the day progresses, I find joy in collaborating with colleagues, each interaction a reminder of our shared mission. Every day presents new opportunities to make a positive impact, and I am grateful for the chance to pursue our vision with steadfast dedication.\n\nContact Information \nCEO  \nEmail: mark@juventus.com \nTwitter: @markzukerberg \n Instagram: @mark";
+      break;
+    case 'viratkohli':
+      title = "Virat Kohli's Journal";
+      text = "Today dawns peacefully in Mumbai, the city waking up outside my window. This tranquil moment allows me to collect my thoughts before diving into a day of training. Stepping onto the familiar cricket grounds, the camaraderie with my teammates ignites my determination to surpass boundaries and refine my skills. Reflecting on recent challenges, I draw strength from adversity and feel immense gratitude for the unwavering support of fans and loved ones. Throughout the day, I relish moments of joy with my teammates, each instance reinforcing my deep love for the sport. Every day presents a new opportunity, and I am thankful for the chance to pursue my passion with relentless dedication. \n\nContact Information \nProfessional cricketer \nEmail: virat.com \nTwitter: @virat \n Instagram: @virat ";
+      break;
+    case 'cristianoronaldo':
+      title = "Cristiano Ronaldo's Journal";
+      text = "Today, I return to Madrid with a mix of nostalgia and determination. Training under the intense sun reminds me of the relentless dedication needed to excel. Amidst the chaos, moments of solitude bring clarity. Each match presents unique challenges, but the victories are a testament to perseverance. Grateful for this journey, I embrace each day with renewed passion and purpose, ready for whatever lies ahead. \n\nContact Information \nProfessional Footballer \nEmail: cr7@juventus.com \nTwitter: @Cristiano \n Instagram: @cristiano";
+      break;
+    case 'lionelmessi':
+      title = "Lionel Messi's Journal";
+      text = "Today begins quietly in Barcelona, the city stirring gently outside my window. This peaceful moment allows me to gather my thoughts before training begins. Stepping onto the familiar training grounds, the camaraderie with teammates fuels my determination to push beyond limits and refine my skills. Reflecting on recent challenges, I find strength in adversity and gratitude for the support of fans and loved ones. As the day unfolds, I cherish moments of joy with teammates, reminding me of the pure love I have for this game. Each day is a privilege, and I am grateful for the opportunity to pursue my passion with unwavering dedication. \n\nContact Information \nProfessional Footballer \nEmail: messi@barcelona.com \nTwitter: @TeamMessi \n Instagram: @leomessi";
+      break;
+    case 'billgates':
+      title = "Bill Gate's Journal";
+      text = "Today was one of those days where I felt the true impact of the incredible pace of technological advancement. My morning started early with a virtual meeting discussing the latest developments in artificial intelligence and its potential to revolutionize healthcare. The excitement in the room was palpable as we brainstormed ways to accelerate research and make these innovations accessible to those who need them most. After that, I spent some time catching up on reading—I'm currently diving into a fascinating book about the history of public health, which offers valuable insights into how we can tackle modern challenges. In the afternoon, I met with a team working on a new education initiative aimed at bridging the digital divide. \nCEO  \nEmail: @billgatesfoundation.org \nTwitter: @bill \n Instagram: @billgates";
+      break;
+    case 'stevejobs':
+      title = "Stevejobs's Journal";
+      text = "This morning started with a simple ritual—a cup of green tea as I sat by the window, letting the early rays of sunlight filter through the leaves outside. The serenity of this moment provided a stark contrast to the whirlwind of innovation and challenges that awaited me. As I walked into the office, I was greeted by the buzz of creativity, a tangible energy that seemed to hum through the walls of our headquarters. Meetings with the design team were invigorating; their passion for creating not just products, but experiences, reminded me why we do what we do. Lunch was a brief interlude, a chance to recharge and gather thoughts before diving back into discussions about the next big thing. By late afternoon, the rhythm of the day had shifted—coding sessions, brainstorming with engineers, and refining our vision. \n\nContact Information \nCEO  \nEmail: @stevejobsfoundation.org \nTwitter: @steve \n Instagram: @stevejobs";
+      break;
+    case 'david':
+      title = "David Goggins's Journal";
+      text = "I woke up at 4:30 AM, no excuses. Hit the road for a 10-mile run, rain pouring down but I embraced the grind. After that, a cold shower to reset my mind and body. Knocked out a 2-hour workout session in the gym, no shortcuts, just hard work. Fueled up with a clean breakfast, then dived into reading and learning for a couple of hours. The afternoon was spent tackling projects, staying relentless in my pursuit of excellence. Wrapped up the day with a 5-mile evening run, pushing past the pain. No comfort zones, just daily discipline and dedication. \n\nContact Information \nEmail: @davidgoggins.org \nTwitter: @davidgoggins \n Instagram: @goggins";
+      break;
+    case 'dhoni':
+      title = "Dhoni's Journal";
+      text = "Today was a good day. Started with a morning workout, followed by a hearty breakfast. Spent some quality time with family before heading to a meeting with the team. Discussed strategies for the upcoming matches, focusing on teamwork and discipline. The evening was relaxed, took a stroll around the garden, and enjoyed the sunset. Wrapped up the day with a simple dinner and some light reading. Feeling grateful for the little things.\n\nContact Information  \nEmail: @dhoni.org \nTwitter: @Mahi \n Instagram: @dhoni";
+      break;
+    case 'sunil':
+      title = "Sunil Chetri's Journal";
+      text = "Today started with a 6 AM alarm, followed by a quick breakfast of oatmeal and fruit. Training was intense, focusing on endurance and ball control. After drills, I had a great discussion with teammates about last night's game over lunch. The afternoon was about recovery with the physio and an ice bath session. I spent some quiet time reading and connecting with fans online. Dinner was simple and healthy—grilled chicken and veggies. As I wound down, I reflected on the day and set goals for tomorrow, ready to tackle another day with renewed energy. \n\nContact Information  \nEmail: @sunilchetri.org \nTwitter: @sunil \n Instagram: @sunilchetri";
+      break;
+    case 'nambinarayanan':
+      title = "Nambi Narayanan's Research Papers";
+      text = "Nambi Narayanan, an Indian aerospace scientist, made groundbreaking contributions to the field of rocket propulsion and space technology, particularly through his work on the development of the Vikas engine, a crucial component for India’s space program. His research, which spans the development of liquid propulsion systems, significantly enhanced the efficiency and performance of satellite launch vehicles. Despite facing grave injustices, including wrongful imprisonment on charges of espionage, Narayanan's resilience and commitment to science and innovation remained unshaken. His work not only propelled India into the elite group of nations capable of launching satellites into space but also exemplified the perseverance and integrity required in scientific research. Narayanan's legacy continues to inspire future generations of scientists and engineers in India and around the world, emphasizing the critical role of unwavering dedication to science and technological advancement. \n\nContact Information. \nEmail: @nambinarayanan.org \nTwitter: @Nambi \n Instagram: @nambinarayanan";
+      break;
+    case 'viswanathan anand':
+      title = "Viswanathan Anand's Journal";
+      text = "Today started on a refreshing note with a morning jog through the park, soaking in the serenity of nature. After a hearty breakfast, I delved into an intense training session, sharpening my strategies for the upcoming tournament. The afternoon was spent reviewing past games, identifying nuances and patterns I might have missed before. A relaxing tea break with family provided a much-needed respite. The evening saw me engaging in a friendly online match, which was both challenging and enjoyable. Wrapping up the day with a quiet read, I felt content and prepared for the new challenges tomorrow may bring. \n\nContact Information  \nEmail: @viswanathan.org \nTwitter: @anand \n Instagram: @vishwanathananand";
+      break;
+    case 'srinivasa ramanujan':
+      title = "Srinivasa Ramanujan's Journal";
+      text = "Today dawns quietly in Seattle, the gentle hum of the city outside my window. This tranquil moment allows me to collect my thoughts before diving into the day's tasks. Stepping into familiar offices, the collaboration with my team fuels my determination to innovate and solve complex challenges. Reflecting on recent projects, I draw strength from overcoming obstacles and am grateful for the unwavering support of colleagues and partners. Throughout the day, I treasure moments of insight and progress, reaffirming my passion for technology and philanthropy. Each opportunity to make a difference is a privilege, and I am thankful for the chance to contribute to a brighter future.";
+      break;
+
+
+
+    default:
+      title = "Journal not found";
+      text = "";
+  }
+  
+  document.getElementById('journal-title').innerText = title;
+  document.getElementById('journal-text').innerText = text;
+  
+  document.getElementById('explore-content').style.display = 'none';
+  document.getElementById('journal-content').style.display = 'block';
+}
+
+function backToExplore() {
+  document.getElementById('journal-content').style.display = 'none';
+  document.getElementById('explore-content').style.display = 'block';
+}
+
+
+let isPlaying = false;
+const musicButton = document.getElementById('music-button');
+const backgroundMusic = document.getElementById('background-music');
+
+function toggleMusic() {
+  if (isPlaying) {
+    backgroundMusic.pause();
+    musicButton.innerText = '🎵';
+  } else {
+    backgroundMusic.play();
+    musicButton.innerText = '🔊';
+  }
+  isPlaying = !isPlaying;
+}
+
+
+document.getElementById("profile-form").addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent form submission
+  
+  // Perform form submission logic (e.g., update profile data)
+  // For demonstration, we'll just show an alert message
+  alert("Profile updated successfully!");
+});
+
+
+document.getElementById('logout-btn').addEventListener('click', function() {
+  logout();
+});
+
+// Function to handle logout
+function logout() {
+  alert('Logged out successfully');
+  // Add additional logout logic here, such as clearing session data or redirecting
+}
+
+
+
+
+  </script>
+
+</html>

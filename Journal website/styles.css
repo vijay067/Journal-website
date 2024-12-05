@@ -1,0 +1,430 @@
+/* Basic styling */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+
+  }
+
+  body {
+    background: url('https://cdn.dribbble.com/users/720472/screenshots/2177275/gif.gif') no-repeat center center fixed;
+    background-size: cover;
+  }
+
+.top-bar {
+background-color: rgba(51, 51, 51, 0.7); /* Semi-transparent background for better readability */
+color: #fff;
+display: flex;
+justify-content: space-around;
+padding: 30px 0;
+width: 100%; /* Ensure the top bar spans the full width */
+box-sizing: border-box; /* Include padding in the width calculation */
+max-width: 100%; /* Prevent overflow */
+}
+
+.section {
+cursor: pointer;
+}
+
+.main-content {
+padding: 20px;
+}
+
+.section-content {
+display: none;
+}
+
+/* Theme-specific styles */
+.dark-theme {
+background-color: #333;
+color: #fff;
+}
+
+.light-theme {
+background-color: #fff;
+color: #333;
+}
+
+/* New journal form */
+.new-journal-form {
+display: none;
+}
+
+.new-journal-form textarea {
+width: 100%;
+height: 100px;
+margin-bottom: 10px;
+}
+
+/* My journals list */
+.my-journals-list {
+margin-top: 20px;
+}
+
+.my-journals-list .journal-entry {
+margin-bottom: 10px;
+border: 1px solid #ccc;
+padding: 10px;
+}
+
+.home-container {
+background: rgba(255, 255, 255, 0.9); /* White box with slight transparency */
+padding: 30px;
+border-radius: 15px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+text-align: center;
+max-width: 600px;
+width: 90%;
+}
+
+h1 {
+margin-bottom: 20px;
+font-size: 2.5em;
+}
+
+p {
+margin-bottom: 20px;
+font-size: 1.2em;
+}
+
+.cta-button {
+background-color: #4CAF50;
+color: white;
+padding: 15px 25px;
+border: none;
+border-radius: 5px;
+font-size: 1em;
+cursor: pointer;
+transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+background-color: #45a049;
+}
+
+.features {
+display: flex;
+flex-direction: column;
+gap: 15px;
+margin-top: 20px;
+}
+
+.feature {
+background: #f9f9f9;
+padding: 15px;
+border-radius: 10px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.feature h3 {
+margin-top: 0;
+}
+
+@media (min-width: 600px) {
+.features {
+  flex-direction: row;
+  justify-content: space-between;
+}
+}
+
+/* Button styling */
+button {
+background-color: #4CAF50; /* Green background */
+border: none; /* Remove default border */
+color: white; /* White text */
+padding: 15px 25px; /* Padding around the text */
+text-align: center; /* Center text */
+text-decoration: none; /* Remove underline */
+display: inline-block; /* Inline-block element */
+font-size: 16px; /* Font size */
+margin: 10px 2px; /* Margin around the button */
+cursor: pointer; /* Pointer cursor on hover */
+border-radius: 12px; /* Rounded corners */
+transition: background-color 0.3s, transform 0.3s; /* Smooth transition for background and transform */
+}
+
+button:hover {
+background-color: #45a049; /* Darker green on hover */
+transform: scale(1.05); /* Slightly increase size on hover */
+}
+
+button:active {
+background-color: #3e8e41; /* Even darker green on click */
+transform: scale(0.98); /* Slightly reduce size on click */
+}
+
+
+.new-journal-form textarea {
+width: 50%;
+height: 50px;
+margin-bottom: 10px;
+resize: vertical; /* Allow vertical resizing */
+}
+
+.my-journals-list {
+margin-top: 20px;
+}
+
+.journal-entry {
+    width: 70%; /* Set the width to 100% or specify a fixed width */
+    background: rgba(255, 255, 255, 0.9); /* White box with slight transparency */
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+  }
+
+.journal-content {
+margin-bottom: 10px; /* Add space between content and buttons */
+}
+
+.journal-content p {
+margin: 0; /* Remove default margin to ensure content starts from top */
+color: #333; /* Text color for readability */
+font-size: 20px; /* Font size for readability */
+line-height: 1.5; /* Line height for readability */
+}
+
+/* Existing styles... */
+
+#journal-content {
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+#journal-content button {
+  margin-bottom: 20px;
+}
+
+/* Existing styles... */
+
+.famous-journals {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 70px;
+}
+
+.journal {
+  width: calc(20% - 20px); /* 20% width for each journal with 20px gap */
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.9); /* White box with slight transparency */
+}
+
+.journal:hover {
+  transform: scale(1.05);
+}
+
+.journal-content {
+  background-color: white; /* White background for journal content */
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.journal img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.journal p {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+
+#search-box {
+  width: 100%;
+  max-width: 300px;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+
+/* Existing styles... */
+
+#music-button {
+  position: absolute;
+  top: 55px;
+  right: 20px;
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  padding: 10px 15px;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#music-button:focus {
+  outline: none;
+}
+
+
+/* Notification styles */
+
+.notification {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #ffffff; /* White background */
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  margin-left: 20px;
+  width: 70%;
+}
+
+.notification:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.notification-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 15px;
+}
+
+.notification-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.notification-details {
+  flex: 1;
+}
+
+.notification-details p {
+  margin: 5px 0;
+}
+
+.notification-details p:first-child {
+  font-weight: bold;
+  font-size: 16px;
+  color: #333; /* Dark text color */
+}
+
+.notification-time {
+  color: #888;
+  font-size: 14px;
+}
+
+
+/* Heading style */
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* Form styling */
+#profile-form {
+  max-width: 500px; /* Adjust width of the form */
+  margin: 0 auto; /* Center the form horizontally */
+}
+
+/* Label style */
+label {
+  font-weight: bold;
+}
+
+/* Input field styles */
+#profile-form input[type="text"],
+#profile-form input[type="number"],
+#profile-form input[type="email"],
+#profile-form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Submit button style */
+#profile-form input[type="submit"] {
+  background-color: #4CAF50; /* Green background */
+  color: white; /* White text */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Submit button hover effect */
+#profile-form input[type="submit"]:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+.form-container {
+  background: rgba(235, 127, 18, 0.768); /* White box with slight transparency */
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #ddd; /* Light gray border */
+  max-width: 600px; /* Adjust the maximum width */
+  margin: 0 auto; /* Center the form container horizontally */
+}
+
+
+/* General settings section styling */
+#settings-section {
+  background-color: #f0f0f0; /* Light gray background */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* Specific settings boxes */
+.settings-box {
+  background-color: #ffffff; /* White background for each settings box */
+  padding: 20px;
+  border-radius: 8px;
+  border: 20px solid rgba(229, 94, 11, 0.5); /* Light gray border */
+
+  margin-bottom: 20px;
+  width: 60%;
+  margin-left: 46px; /* Adjust this value to move it inch by inch to the right */
+}
+
+#settings-section h3 {
+  margin-top: 0;
+}
+
+#settings-section form label {
+  font-weight: bold;
+}
+
+#settings-section form input[type="text"],
+#settings-section form input[type="email"],
+#settings-section form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box; /* Ensure padding is included in width calculation */
+}
+
+
+
+#settings-section form label input[type="checkbox"] {
+  margin-right: 10px; /* Space between checkbox and label text */
+}
+
+
